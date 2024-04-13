@@ -1,0 +1,33 @@
+body {
+    background-image: url('C:/DEVOPS_CAFE/Images/Login.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.taskbar {
+    background-color:#603b28; 
+    color: #d3c5bc;
+    padding: 10px; 
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
+}
+
+.taskbar ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    text-align: center; 
+}
+
+.taskbar ul li {
+    display: inline;
+    margin-right: 20px; 
+}
+
+.taskbar ul li a {
+    text-decoration: none;
+    color:#fff; 
+}

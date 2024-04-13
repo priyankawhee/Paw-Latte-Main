@@ -1,0 +1,109 @@
+/* Menu_Style.css */
+
+/* Navigation bar styles */
+.menu-taskbar {
+    background-color: #cfcecb; 
+    color: #d3c5bc; 
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+.menu-taskbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.menu-taskbar ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.menu-taskbar ul li a {
+    text-decoration: none;
+    color: #603b28;
+}
+
+/* Background image */
+body {
+    background-image: url('C:/DEVOPS_CAFE/Images/Menu_bg.png');
+    background-size: cover;
+    background-attachment: fixed; /* Set background attachment to fixed */
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+/* Menu container styles */
+.menu-container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Center items horizontally and distribute space around them */
+}
+
+/* Menu section styles */
+.menu-section {
+    margin-bottom: 40px; /* Adjust spacing between sections */
+    width: 100%;
+}
+
+.menu-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #603b28;
+    text-align: center;
+}
+
+/* Menu item container styles */
+.menu-item-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    justify-content: center;
+}
+
+/* Menu item styles */
+.menu-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 10px; /* Adjust top and bottom margin */
+    max-width: 300px; /* Limit the maximum width of each menu item */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    text-align: center;
+    flex: 0 0 calc(50% - 20px); /* Ensure each item takes up roughly one-half of the container width */
+}
+
+.menu-item h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #603b28;
+}
+
+.menu-item p {
+    color: #666;
+}
+
+.menu-item img {
+    width: 100%; /* Ensure images fill their containers */
+    border-radius: 5px;
+    margin-bottom: 10px; /* Add spacing between image and text */
+}
+
+.order-btn {
+    background-color: #ae7c55;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.order-btn:hover {
+    background-color: #603b28;
+}

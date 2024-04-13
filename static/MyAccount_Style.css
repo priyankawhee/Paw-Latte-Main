@@ -1,0 +1,82 @@
+/* Navigation bar styles */
+.myaccount-taskbar {
+  background-color: #cfcecb; 
+  color: #d3c5bc; 
+  padding: 10px;
+  position: fixed;
+  top: 0; 
+  width: 100%;
+  z-index: 1000;
+}
+
+.myaccount-taskbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.myaccount-taskbar ul li {
+  display: inline;
+  margin-right: 20px;
+} 
+
+.myaccount-taskbar ul li a {
+  text-decoration: none;
+  color: #603b28;
+}
+
+
+/* Login and Sign-up Page Styles */
+.login-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 100px auto;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-container h2 {
+  color: #ae7c55;
+  margin-bottom: 20px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-container button {
+  background-color: #ae7c55;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #975e3f;
+}
+
+.login-container p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-container p a {
+  color: #ae7c55;
+}
+/* Background image */
+body {
+  background-image: url('C:/DEVOPS_CAFE/Images/MyAccount_bg.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: repeat;
+}

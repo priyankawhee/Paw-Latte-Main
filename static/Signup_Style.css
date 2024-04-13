@@ -1,0 +1,83 @@
+/* Navigation bar styles */
+.signup-taskbar {
+    background-color: #cfcecb;
+    color: #d3c5bc;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .signup-taskbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .signup-taskbar ul li {
+    display: inline;
+    margin-right: 20px;
+  } 
+  
+  .signup-taskbar ul li a {
+    text-decoration: none;
+    color: #603b28;
+  }
+
+  /* Background image */
+body {
+    background-image: url('C:/DEVOPS_CAFE/Images/MyAccount_bg.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+  /* Sign-up Form Styles */
+.signup-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 100px auto;
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.signup-container h2 {
+    color: #ae7c55;
+    margin-bottom: 20px;
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"],
+.signup-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.signup-container button {
+    background-color: #ae7c55;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.signup-container button:hover {
+    background-color: #975e3f;
+}
+
+.signup-container p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup-container p a {
+    color: #ae7c55;
+}

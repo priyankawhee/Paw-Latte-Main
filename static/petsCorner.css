@@ -1,0 +1,36 @@
+/* Navigation bar styles */
+.petsCorner-taskbar {
+    background-color: #cfcecb; 
+    color: #d3c5bc; 
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+.petsCorner-taskbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.petsCorner-taskbar ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.petsCorner-taskbar ul li a {
+    text-decoration: none;
+    color: #603b28;
+}
+
+/* Background image */
+body {
+    background-image: url('C:/DEVOPS_CAFE/Images/Menu_bg.png');
+    background-size: cover;
+    background-attachment: fixed; /* Set background attachment to fixed */
+    background-position: center top;
+    background-repeat: no-repeat;
+}
