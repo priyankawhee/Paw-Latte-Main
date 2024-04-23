@@ -7,11 +7,11 @@ app.secret_key = 'pri'
 # Function to authenticate user
 def authenticate_user(username, password):
     try:
-        # Connect to your PostgreSQL database
+        # Connect to your PostgreSQL database using localhost
         conn = psycopg2.connect(
-            dbname="DB1",
-            user="admin",
-            password="pri123!!",
+            dbname="pawlatte",
+            user="postgres",
+            password="pri",
             host="localhost",
             port="5432"
         )
@@ -20,7 +20,7 @@ def authenticate_user(username, password):
         cur = conn.cursor()
 
         # Prepare the query to fetch user credentials
-        query = "SELECT * FROM Registration WHERE username = %s AND password = %s"
+        query = "SELECT * FROM registration WHERE username = %s AND password = %s"
         data = (username, password)
 
         # Execute the query with username and password as parameters
@@ -48,7 +48,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         
-        # Authenticate the user (replace this with your authentication logic)
+        # Authenticate the user
         authenticated_user = authenticate_user(username, password)
         
         if authenticated_user:
@@ -70,20 +70,23 @@ def login():
     else:
         return render_template('MyAccount.html')
 
-# Route for registration page
+## Route for registration page
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        # Handle POST request for registration
+        fname = request.form['fname']
+        lname = request.form['lname']
         new_email = request.form['new-email']
         new_username = request.form['new-username']
         new_password = request.form['new-password']
         
         try:
-            # Connect to your PostgreSQL database
+            # Connect to PostgreSQL database
             conn = psycopg2.connect(
-                dbname="DB1",
-                user="admin",
-                password="pri123!!",
+                dbname="pawlatte",
+                user="postgres",
+                password="pri",
                 host="localhost",
                 port="5432"
             )
@@ -92,14 +95,14 @@ def register():
             cur = conn.cursor()
 
             # Check if the username or email already exists in the database
-            cur.execute("SELECT * FROM Registration WHERE username = %s OR email = %s", (new_username, new_email))
+            cur.execute("SELECT * FROM registration WHERE username = %s OR email = %s", (new_username, new_email))
             existing_user = cur.fetchone()
 
             if existing_user:
                 return "Username or email already exists. Please choose a different one."
 
             # If username or email doesn't exist, insert the new user into the database
-            cur.execute("INSERT INTO Registration (fname, lname, email, username, password) VALUES (%s, %s, %s, %s, %s)", (new_username, new_email, new_password))
+            cur.execute("INSERT INTO registration (fname, lname, email, username, password) VALUES (%s, %s, %s, %s, %s)", (fname, lname, new_email, new_username, new_password))
             conn.commit()
 
             # Close the cursor and connection
@@ -108,13 +111,11 @@ def register():
 
             # Redirect to login page after successful registration
             return redirect(url_for('login'))
-
-        except psycopg2.Error as e:
-            print("Error connecting to the database:", e)
-            return "An error occurred during registration. Please try again later."
-
+        except Exception as e:
+            return str(e)  # Return the error message for debugging
     else:
-        return render_template('MyAccount.html')
+        # Handle GET request for registration
+        return render_template('Signup.html')
 
 # Home page route
 @app.route('/home')
@@ -133,3 +134,5 @@ def petscorner():
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
+
+
