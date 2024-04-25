@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <link rel="stylesheet" href="C:\Flask_Devops\static\Menu_Style.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Menu_Style.css') }}"> <!-- Link to your CSS file -->
 </head>
 <body>
 
 <nav class="menu-taskbar">
     <ul>
-        <li><a href="Home.html">Home</a></li>
-        <li><a href="Menu.html">Menu</a></li>
-        <li><a href="#">Reservations</a></li>
-        <li><a href="petsCornor.html">Pets Corner</a></li>
-        <li class="account-tab"><a href="MyAccount.html">My Account</a></li>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('menu') }}">Menu</a></li>
+        <li><a href="{{ url_for('petscorner') }}">Pets Corner</a></li>
+        <li class="account-tab"><a href="{{ url_for('login') }}">My Account</a></li>
     </ul>
 </nav>
 
@@ -28,52 +27,53 @@
         <div class="menu-item-container">
             <div class="menu-item">
                 <h3>Espresso</h3>
-                <img src="C:\Flask_Devops\static\espresso.jpg" alt="Latte">
-                <p>A concentrated form of coffee brewed with high pressure, hot water and finely ground coffee beans.</p>
+                <img src="{{ url_for('static', filename='espresso.jpg') }}" alt="Espresso">
+                <p>A concentrated form of coffee brewed with high pressure, hot water, and finely ground coffee beans.</p>
                 <button class="order-btn">Order Now</button>    
             </div>
             <div class="menu-item">
                 <h3>Double Espresso</h3>
-                <img src="C:\Flask_Devops\static\doubleEspresso.jpg" alt="Latte">
+                <img src="{{ url_for('static', filename='doubleEspresso.jpg') }}" alt="Double Espresso">
                 <p>Two shots of pure coffee essence, delivering an intense burst of flavor and energy in every sip.</p>
                 <button class="order-btn">Order Now</button>
             </div>
             <div class="menu-item">
                 <h3>Coffee Latte</h3>
-                <img src="C:\Flask_Devops\static\coffeeLatte.jpeg" alt="Latte">
+                <img src="{{ url_for('static', filename='coffeeLatte.jpeg') }}" alt="Double Espresso">
                 <p>Smooth espresso meets creamy steamed milk for a velvety, indulgent delight.</p>
                 <button class="order-btn">Order Now</button>
             </div>
             <div class="menu-item">
                 <h3>Iced Coffee Latte</h3>
-                <img src="C:\Flask_Devops\static\icedCoffeeLatte.jpg" alt="Latte">
+                <img src="{{ url_for('static', filename='icedCoffeeLatte.jpg') }}" alt="Double Espresso">
                 <p>A refreshing twist on the classic, blending chilled espresso with creamy milk over ice for a cool, creamy indulgence.</p>
                 <button class="order-btn">Order Now</button>
             </div>
             <div class="menu-item">
                 <h3>Cold Coffee</h3>
-                <img src="C:\Flask_Devops\static\coldCoffee.jpg" alt="Latte">
+                <img src="{{ url_for('static', filename='coldCoffee.jpg') }}" alt="Double Espresso">
                 <p>Savor the cool, invigorating embrace of cold coffee, a refreshing symphony of rich flavors and icy delight.</p>
                 <button class="order-btn">Order Now</button>
             </div>
             <div class="menu-item">
                 <h3>Americano</h3>
-                <img src="C:\Flask_Devops\static\Americano.png" alt="Latte">
+                <img src="{{ url_for('static', filename='Americano.png') }}" alt="Double Espresso">
                 <p>Savor the cool, invigorating embrace of cold coffee, a refreshing symphony of rich flavors and icy delight.</p>
                 <button class="order-btn">Order Now</button>
             </div>
             <div class="menu-item">
                 <h3>Macchiato</h3>
-                <img src="C:\Flask_Devops\static\Macchiato.png" alt="Latte">
+                <img src="{{ url_for('static', filename='Macchiato.png') }}" alt="Double Espresso">
                 <p>Bold espresso marked with a dollop of velvety foam, delivering a perfect balance of rich intensity and creamy texture.</p>
                 <button class="order-btn">Order Now</button>
             </div>
             <div class="menu-item">
                 <h3>Filter Coffee</h3>
-                <img src="C:\Flask_Devops\static\FilterCoffee.png" alt="Latte">
+                <img src="{{ url_for('static', filename='FilterCoffee.png') }}" alt="Double Espresso">
                 <p>A pure and flavorful brew, meticulously crafted through the gentle filtration process, revealing the true essence of the beans in every sip.</p>
                 <button class="order-btn">Order Now</button>
             </div>
+            <!-- Add more coffee menu items here -->
         </div>
     </div>  
 
@@ -82,49 +82,49 @@
         <div class="menu-item-container">
             <div class="menu-item">
                 <h3>Hot Chocolate</h3>
-                <img src="C:\Flask_Devops\static\hotChocolate.png" alt="Latte">
-                <p> Rich cocoa blended with steamed milk for a comforting treat, topped with whipped cream or marshmallows.</p>
+                <img src="{{ url_for('static', filename='hotChocolate.png') }}" alt="Hot Chocolate">
+                <p>Rich cocoa blended with steamed milk for a comforting treat, topped with whipped cream or marshmallows.</p>
                 <button class="order-btn">Order Now</button>    
             </div>
             <div class="menu-item">
                 <h3>Iced Tea</h3>
-                <img src="C:\Flask_Devops\static\iced tea.png" alt="Latte">
+                <img src="{{ url_for('static', filename='icedtea.png') }}" alt="Iced Tea">
                 <p>Chilled and invigorating, brewed tea poured over ice for a refreshing sip, available in a variety of flavors to suit your taste buds.</p>
                 <button class="order-btn">Order Now</button>    
             </div>
             <div class="menu-item">
                 <h3>Iced Lemonade</h3>
-                <img src="C:\Flask_Devops\static\lemonade.png" alt="Latte">
+                <img src="{{ url_for('static', filename='lemonade.png') }}" alt="Iced Tea">
                 <p>A zesty and refreshing blend of freshly squeezed lemon juice, sweetener, and ice, perfect for quenching your thirst on a hot day.</p>
                 <button class="order-btn">Order Now</button>    
             </div>
             <div class="menu-item">
                 <h3>Strawberry-Banana Smoothie</h3>
-                <img src="C:\Flask_Devops\static\straw_bana_smoothie.jpg" alt="Latte">
+                <img src="{{ url_for('static', filename='straw_bana_smoothie.jpg') }}" alt="Iced Tea">
                 <p>A delightful blend of ripe strawberries and creamy bananas, blended with yogurt or milk for a refreshing and satisfying treat, perfect for any time of day.</p>
                 <button class="order-btn">Order Now</button>    
             </div>
             <div class="menu-item">
                 <h3>Mango-Pineapple Smoothie</h3>
-                <img src="C:\Flask_Devops\static\mang_pine_smoothie.jpg" alt="Latte">
+                <img src="{{ url_for('static', filename='mang_pine_smoothie.jpg') }}" alt="Iced Tea">
                 <p>Transport yourself to the tropics with this luscious blend of ripe mangoes and tangy pineapples, mixed with coconut milk or orange juice for a refreshing taste of paradise in every sip.</p>
                 <button class="order-btn">Order Now</button>    
             </div>
             <div class="menu-item">
                 <h3>Mixed-Berry Smoothie</h3>
-                <img src="C:\Flask_Devops\static\mixed_smoothie.png" alt="Latte">
+                <img src="{{ url_for('static', filename='mixed_smoothie.png') }}" alt="Iced Tea">
                 <p>A burst of antioxidants awaits in this blend of strawberries, blueberries, raspberries, and blackberries, blended with yogurt or almond milk for a delicious and nutritious pick-me-up.</p>
                 <button class="order-btn">Order Now</button>    
             </div>
             <div class="menu-item">
                 <h3>Peachy Keen Smoothie</h3>
-                <img src="C:\Flask_Devops\static\peach_smoothie.png" alt="Latte">
+                <img src="{{ url_for('static', filename='peach_smoothie.png') }}" alt="Iced Tea">
                 <p>Taste the essence of summer with this delightful blend of juicy peaches, blended with Greek yogurt or vanilla almond milk for a creamy and peachy treat that will leave you feeling refreshed and satisfied.</p>
                 <button class="order-btn">Order Now</button>    
             </div>
+            <!-- Add more non-coffee menu items here -->
+        </div>
     </div>
-
-    <!-- Add more sections for tea, desserts, snacks, and bakes -->
 </section>
 
 </body>

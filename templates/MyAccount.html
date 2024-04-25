@@ -2,29 +2,29 @@
 <html>
 <head>
     <title>Login - Paw Latte</title>
-    <link rel="stylesheet" href="C:\Flask_Devops\static\MyAccount_Style.css">
+    <link rel="stylesheet" href="static/MyAccount_Style.css">
+
 </head>
 <body>
     <!-- Taskbar -->
     <div class="myaccount-taskbar">
         <ul>
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="Menu.html">Menu</a></li>
-            <li><a href="#">Reservations</a></li>
-            <li><a href="petsCornor.html">Pets Corner</a></li>
-            <li class="account-tab"><a href="MyAccount.html">My Account</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('menu') }}">Menu</a></li>
+            <li><a href="{{ url_for('petscorner') }}">Pets Corner</a></li>
+            <li class="account-tab"><a href="{{ url_for('register') }}">My Account</a></li>
         </ul>
     </div>
 
     <!-- Login Form -->
     <div class="login-container">
         <h2>Login to Your Account</h2>
-        <form>
-            <input type="text" placeholder="Username" required>
-            <input type="password" placeholder="Password" required>
+        <form action="{{ url_for('login') }}" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <a href="Signup.html">Sign up here</a></p>
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a></p>
     </div>
 </body>
 </html>
