@@ -30,7 +30,7 @@
 
 /* Background image */
 body {
-    background-image: url('C:/DEVOPS_CAFE/Images/Menu_bg.png');
+    background-image: url('../static/Menu_bg.png');
     background-size: cover;
     background-attachment: fixed; /* Set background attachment to fixed */
     background-position: center top;
@@ -106,4 +106,45 @@ body {
 
 .order-btn:hover {
     background-color: #603b28;
+}
+
+/* Order summary popup styles */
+.order-summary-popup {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1001; /* Ensure it appears above other content */
+}
+
+.order-summary-popup h2 {
+    color: #ae7c55;
+    margin-bottom: 20px;
+}
+
+.order-summary-popup ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-summary-popup ul li {
+    margin-bottom: 10px;
+}
+
+.order-summary-popup button {
+    background-color: #ae7c55;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.order-summary-popup button:hover {
+    background-color: #975e3f;
 }

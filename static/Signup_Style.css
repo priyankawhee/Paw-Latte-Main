@@ -28,7 +28,7 @@
 
   /* Background image */
 body {
-    background-image: url('C:/DEVOPS_CAFE/Images/MyAccount_bg.png');
+    background-image: url('../static/MyAccount_bg.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;

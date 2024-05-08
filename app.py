@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 import psycopg2
 
 app = Flask(__name__)
@@ -39,6 +39,43 @@ def authenticate_user(username, password):
     except psycopg2.Error as e:
         print("Error connecting to the database:", e)
         return None
+
+# Function to create orders table
+def create_orders_table():
+    try:
+        # Connect to PostgreSQL database
+        conn = psycopg2.connect(
+            dbname="pawlatte",
+            user="postgres",
+            password="pri",
+            host="localhost",
+            port="5432"
+        )
+
+        # Create a cursor object
+        cur = conn.cursor()
+
+        # Create orders table if it doesn't exist
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS orders (
+                id SERIAL PRIMARY KEY,
+                item VARCHAR(100) NOT NULL,
+                username VARCHAR(100) NOT NULL
+            )
+        """)
+
+        # Commit the transaction
+        conn.commit()
+
+        # Close the cursor and connection
+        cur.close()
+        conn.close()
+
+    except psycopg2.Error as e:
+        print("Error creating orders table:", e)
+
+# Call the function to create the orders table
+create_orders_table()
 
 # Route for login page
 @app.route('/', methods=['GET', 'POST'])
@@ -130,9 +167,71 @@ def menu():
 # Route for the course page
 @app.route('/petscorner')
 def petscorner():
-    return render_template('petscorner.html')
+    return render_template('petsCorner.html')
+
+# Route for the user profile page
+@app.route('/profile')
+def profile():
+    # Check if user is logged in
+    if 'user' in session and session['logged_in']:
+        # Render the profile template and pass user data to it
+        return render_template('profile.html', user=session['user'])
+    else:
+        # Redirect to the login page if user is not logged in
+        return redirect(url_for('login'))
+
+# Route for logout
+@app.route('/logout', methods=['POST'])
+def logout():
+    # Clear the session to log the user out
+    session.clear()
+    # Redirect to the login page after logout
+    return redirect(url_for('login'))
+
+# Route to handle placing orders
+@app.route('/place_order', methods=['POST'])
+def place_order():
+    if request.method == 'POST':
+        # Check if user is logged in
+        if 'user' in session and session['logged_in']:
+            # Retrieve the selected items from the request
+            selected_items = request.json['selectedItems']
+            username = session['user']['username']
+
+            try:
+                # Connect to PostgreSQL database
+                conn = psycopg2.connect(
+                    dbname="pawlatte",
+                    user="postgres",
+                    password="pri",
+                    host="localhost",
+                    port="5432"
+                )
+
+                # Create a cursor object
+                cur = conn.cursor()
+
+                # Insert each selected item into the orders table
+                for item in selected_items:
+                    cur.execute("INSERT INTO orders (item, username) VALUES (%s, %s)", (item, username))
+                
+                # Commit the transaction
+                conn.commit()
+
+                # Close the cursor and connection
+                cur.close()
+                conn.close()
+
+                # Return a success message
+                return jsonify({"message": "Order placed successfully!"})
+
+            except psycopg2.Error as e:
+                print("Error placing order:", e)
+                return jsonify({"error": "Failed to place order. Please try again later."})
+
+        else:
+            return jsonify({"error": "User not logged in. Please log in to place an order."})
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
-
-

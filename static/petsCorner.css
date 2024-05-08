@@ -26,11 +26,71 @@
     color: #603b28;
 }
 
+
 /* Background image */
 body {
-    background-image: url('C:/DEVOPS_CAFE/Images/Menu_bg.png');
+    background-image: url('../static/Menu_bg.png');
     background-size: cover;
-    background-attachment: fixed; /* Set background attachment to fixed */
     background-position: center top;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
+  }
+
+#pet-adoption {
+    margin-top: 50px; /* Adjust the value as needed to create enough space */
 }
+
+
+/* Style for the adoption container */
+.adoption-container {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+/* Style for the adoption section */
+.adoption-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style for each adoption item */
+.adoption-item {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Style for adoption item titles */
+.adoption-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Style for adoption item images */
+.adoption-item img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Style for adoption item descriptions */
+.adoption-item p {
+    margin-bottom: 10px;
+}
+
+/* Style for adopt button */
+.adopt-btn {
+    background-color: #ae7c55;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Style for adopt button on hover */
+.adopt-btn:hover {
+    background-color: #ae7c55;
+}
+

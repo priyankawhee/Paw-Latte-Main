@@ -1,0 +1,49 @@
+/* Navigation bar styles */
+.profile-taskbar {
+    background-color: #cfcecb;
+    color: #d3c5bc;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .profile-taskbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .profile-taskbar ul li {
+    display: inline;
+    margin-right: 20px;
+  } 
+  
+  .profile-taskbar ul li a {
+    text-decoration: none;
+    color: #603b28;
+  }
+
+  /* Background image */
+body {
+    background-image: url('../static/MyAccount_bg.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+/* Profile logout button style */
+.logout-btn {
+    background-color: #975e3f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #975e3f;
+}

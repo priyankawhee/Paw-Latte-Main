@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="static/profile.css">
+</head>
+<body>
+    <div class="profile-taskbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('menu') }}">Menu</a></li>
+            <li><a href="{{ url_for('petscorner') }}">Pets Corner</a></li>
+            <li class="account-tab"><a href="{{ url_for('login') }}">My Account</a></li>
+        </ul>
+    </div>
+
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+            <div class="profile-picture">
+                <!-- You can display a profile picture here if you have one -->
+            </div>
+            <div class="user-details">
+                <h2>Username: {{ user.username }}</h2>
+                <h3>Email: {{ user.email }}</h3>
+                <!-- Add more user details as needed -->
+            </div>
+        </div>
+
+        <!-- Logout form -->
+        <form action="{{ url_for('logout') }}" method="post">
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

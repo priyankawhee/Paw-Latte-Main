@@ -1,5 +1,5 @@
 body {
-    background-image: url('C:/DEVOPS_CAFE/Images/Login.png');
+    background-image: url('../static/Login.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;

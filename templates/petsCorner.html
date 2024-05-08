@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pets Corner - Paw Latte</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='petsCorner.css') }}">
+</head>
+<body>
+    <!-- Taskbar -->
+    <div class="petsCorner-taskbar">
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('menu') }}">Menu</a></li>
+            <li><a href="{{ url_for('petscorner') }}">Pets Corner</a></li>
+            <li class="account-tab"><a href="{{ url_for('profile') }}">My Profile</a></li>
+        </ul>
+    </div>
+    <script src="{{ url_for('static', filename='petsCorner.js') }}"></script> <!-- JavaScript for slideshow transition -->
+
+    <section class="adoption-container">
+      <div class="adoption-section">
+          <h2>Pet Adoption</h2>
+          <div class="adoption-item-container">
+              <div class="adoption-item">
+                  <h3>Pet 1</h3>
+                  <img src="{{ url_for('static', filename='dog2.jpeg') }}" alt="Pet 1">
+                  <p>Description of Pet 1</p>
+                  <button class="adopt-btn">Adopt</button>   
+              </div>
+              <div class="adoption-item">
+                  <h3>Pet 2</h3>
+                  <img src="pet2.jpg" alt="Pet 2">
+                  <p>Description of Pet 2</p>
+                  <button class="adopt-btn">Adopt</button>   
+              </div>
+              <!-- Add more adoption items for additional pets -->
+          </div>
+      </div>
+  </section>
+  
+</body>
+</html>

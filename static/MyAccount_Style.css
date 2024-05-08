@@ -75,8 +75,50 @@
 }
 /* Background image */
 body {
-  background-image: url('C:/DEVOPS_CAFE/Images/MyAccount_bg.png');
+  background-image: url('../static/MyAccount_bg.png');
   background-size: cover;
   background-position: center top;
   background-repeat: repeat;
+}
+
+/* Order Summary Popup Styles */
+.order-summary-popup {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001; /* Ensure it appears above other content */
+}
+
+.order-summary-popup h2 {
+  color: #ae7c55;
+  margin-bottom: 20px;
+}
+
+.order-summary-popup ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.order-summary-popup ul li {
+  margin-bottom: 10px;
+}
+
+.order-summary-popup button {
+  background-color: #ae7c55;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-summary-popup button:hover {
+  background-color: #975e3f;
 }
