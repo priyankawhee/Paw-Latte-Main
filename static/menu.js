@@ -1,67 +1,40 @@
-// Function to add item to order summary
-function addToOrder(itemName) {
-    var orderList = document.getElementById('order-list');
-    var listItem = document.createElement('li');
-    listItem.textContent = itemName;
-    // Create remove button
-    var removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.onclick = function() {
-        removeFromOrder(itemName);
-    };
-    listItem.appendChild(removeButton);
-    orderList.appendChild(listItem);
-}
+// Function to add items to the order summary
+function addToOrder(itemName, price) {
+    // Create a new list item for the order summary
+    var li = document.createElement("li");
+    li.textContent = itemName + " - ₹" + price;
 
-// Function to remove item from order summary
-function removeFromOrder(itemName) {
-    console.log("Removing item:", itemName); // Add this line to check if the function is being called
-    var orderList = document.getElementById('order-list');
-    var items = orderList.getElementsByTagName('li');
-    for (var i = 0; i < items.length; i++) {
-        if (items[i].textContent.trim() === itemName) {
-            console.log("Found item to remove:", itemName); // Add this line to check if the correct item is being found
-            orderList.removeChild(items[i]);
-            break;
-        }
-    }
+    // Append the new item to the order list
+    document.getElementById("order-list").appendChild(li);
 }
-
 
 // Function to place the order
 function placeOrder() {
-    // Retrieve the selected items
-    var selectedItems = [];
-    var orderList = document.getElementById('order-list').getElementsByTagName('li');
-    for (var i = 0; i < orderList.length; i++) {
-        selectedItems.push(orderList[i].textContent.trim());
-    }
+    var items = [];
+    // Get the list of items from the order summary
+    var orderItems = document.querySelectorAll("#order-list li");
+    orderItems.forEach(function(item) {
+        var itemName = item.textContent.split(" - ")[0];
+        var itemPrice = parseInt(item.textContent.split(" - ")[1].substring(1)); // Remove the ₹ symbol
+        items.push({item: itemName, price: itemPrice});
+    });
 
-    // Make a POST request to the server to place the order
+    // Send a POST request to the Flask route to place the order
     fetch('/place_order', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ selectedItems: selectedItems })
+        body: JSON.stringify({items: items}),
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
-        // Handle the response from the server
-        if (data.message) {
-            // Order placed successfully
-            console.log(data.message);
-            // Clear the order summary after placing the order
-            document.getElementById('order-list').innerHTML = '';
-        } else if (data.error) {
-            // Error placing order
-            console.error(data.error);
-            // Optionally, you can show an error message to the user
-        }
+        alert(data); // Show a success message
+        // Clear the order summary after placing the order
+        document.getElementById("order-list").innerHTML = "";
     })
     .catch(error => {
-        // Handle any errors that occur during the request
-        console.error('Error placing order:', error);
-        // Optionally, you can show an error message to the user
+        console.error('Error:', error);
+        alert('Error placing the order. Please try again.');
     });
 }

@@ -7,3 +7,4 @@ setInterval(() => {
     slideIndex = (slideIndex + 1) % slides.length;
     slides[slideIndex].classList.add('active');
 }, 3000); // Change slide every 3 seconds
+

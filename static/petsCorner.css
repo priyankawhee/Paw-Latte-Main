@@ -26,57 +26,65 @@
     color: #603b28;
 }
 
-
 /* Background image */
 body {
-    background-image: url('../static/Menu_bg.png');
+    background-image: url('../static/Pets_corner2.png');
     background-size: cover;
     background-position: center top;
-    background-repeat: repeat;
-  }
-
-#pet-adoption {
-    margin-top: 50px; /* Adjust the value as needed to create enough space */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Ensure background image remains fixed */
+    margin: 0; /* Reset default body margin */
 }
 
-
-/* Style for the adoption container */
-.adoption-container {
-    padding: 50px 0;
-    background-color: #f9f9f9;
+/* Pets container styles */
+.pets-container {
+    padding: 100px 20px; /* Adjust padding as needed */
+    text-align: center;
 }
 
-/* Style for the adoption section */
-.adoption-section {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Pets section styles */
+.pets-section {
+    margin-bottom: 40px; /* Adjust spacing between sections */
 }
 
-/* Style for each adoption item */
-.adoption-item {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+.pets-section h2 {
     margin-bottom: 20px;
-}
-
-/* Style for adoption item titles */
-.adoption-item h3 {
     font-size: 24px;
-    margin-bottom: 10px;
+    color: #603b28;
 }
 
-/* Style for adoption item images */
-.adoption-item img {
-    width: 100%;
+/* Pet item container styles */
+.pet-adopt-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    justify-content: center; /* Center items horizontally */
+}
+
+/* Pet item styles */
+.pet-data {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    margin-bottom: 10px;
+    padding: 20px;
+    margin: 20px 10px; /* Adjust top and bottom margin */
+    width: 300px; /* Fixed width for each pet item */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
-/* Style for adoption item descriptions */
-.adoption-item p {
-    margin-bottom: 10px;
+.pet-data h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #603b28;
+}
+
+.pet-data p {
+    color: #666;
+}
+
+.pet-data img {
+    width: 100%; /* Ensure images fill their containers */
+    border-radius: 5px;
+    margin-bottom: 10px; /* Add spacing between image and text */
 }
 
 /* Style for adopt button */
@@ -93,4 +101,3 @@ body {
 .adopt-btn:hover {
     background-color: #ae7c55;
 }
-

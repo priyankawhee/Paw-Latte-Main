@@ -1,0 +1,72 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: #603b28;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white; /* Changed background color to white */
+    border-radius: 10px;
+}
+
+h2 {
+    color: #603b28;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ae7c55; /* Changed label color */
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Added border */
+    background-color: #fffffe;
+    color: #603b28;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button[type="submit"] {
+    background-color: #ae7c55;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #8c5d3e;
+}
+
+/* Background image */
+body {
+    background-image: url('../static/Pets_corner2.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Ensure background image remains fixed */
+    margin: 0; /* Reset default body margin */
+}
