@@ -14,28 +14,69 @@
             <li class="account-tab"><a href="{{ url_for('profile') }}">My Profile</a></li>
         </ul>
     </div>
-    <script src="{{ url_for('static', filename='petsCorner.js') }}"></script> <!-- JavaScript for slideshow transition -->
 
-    <section class="adoption-container">
-      <div class="adoption-section">
-          <h2>Pet Adoption</h2>
-          <div class="adoption-item-container">
-              <div class="adoption-item">
-                  <h3>Pet 1</h3>
-                  <img src="{{ url_for('static', filename='dog2.jpeg') }}" alt="Pet 1">
-                  <p>Description of Pet 1</p>
-                  <button class="adopt-btn">Adopt</button>   
-              </div>
-              <div class="adoption-item">
-                  <h3>Pet 2</h3>
-                  <img src="pet2.jpg" alt="Pet 2">
-                  <p>Description of Pet 2</p>
-                  <button class="adopt-btn">Adopt</button>   
-              </div>
-              <!-- Add more adoption items for additional pets -->
-          </div>
-      </div>
-  </section>
-  
+    <section class="pets-container">
+        <div class="pets-section">
+            <h2>Need a Loyal bestfriend?</h2>
+            <div class="pet-adopt-container">
+                <div class="pet-data">
+                    <h3>Max</h3>    
+                    <img src="{{ url_for('static', filename='dog1.1.png') }}" alt="dog1">
+                    <p>Fun, energetic and loves peanut butter.</p>
+                    <button class="adopt-btn" onclick="redirectToAdopterPage()">Adopt</button>
+   
+                </div>
+                <div class="pet-data">
+                    <h3>Oliver</h3>
+                    <img src="{{ url_for('static', filename='dog2.png') }}" alt="dog2">
+                    <p>Loves fetch, cuddles, and hates baths.</p>
+                    <button class="adopt-btn" onclick="redirectToAdopterPage()">Adopt</button>   
+                </div>
+                <div class="pet-data">
+                    <h3>Timmy, Bella and Luna</h3>
+                    <img src="{{ url_for('static', filename='dog3.png') }}" alt="dog2">
+                    <p>Love eachother.</p>
+                    <button class="adopt-btn" onclick="redirectToAdopterPage()">Adopt</button>
+   
+                </div>
+            </div>
+        </div>
+        <div class="pets-section">
+            <h2>Cats</h2>
+            <div class="pet-adopt-container">
+                <div class="pet-data">
+                    <h3>Leo</h3>
+                    <img src="{{ url_for('static', filename='cat1.png') }}" alt="cat1">
+                    <p>A majestic and cuddly cat who adores sunny spots and cozy cuddles.</p>
+                    <button class="adopt-btn" onclick="redirectToAdopterPage()">Adopt</button>
+   
+                </div>
+                <div class="pet-data">
+                    <h3>Chloe</h3>
+                    <img src="{{ url_for('static', filename='cat2.png') }}" alt="cat2">
+                    <p>Fluffy and affectionate, with a fondness for curling up on laps.</p>
+                    <button class="adopt-btn" onclick="redirectToAdopterPage()">Adopt</button>
+   
+                </div>
+                <div class="pet-data">
+                    <h3>Snuggles</h3>
+                    <img src="{{ url_for('static', filename='cat3.png') }}" alt="cat3">
+                    <p>A friendly cat with shiny fur and big, curious eyes.</p>
+                    <button class="adopt-btn" onclick="redirectToAdopterPage()">Adopt</button>
+   
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Add this script tag to your HTML page where the adopt button is located -->
+<script>
+    function redirectToAdopterPage() {
+        window.location.href = "/adopter";
+    }
+</script>
+
+
+    <script src="{{ url_for('static', filename='petsCorner.js') }}"></script> <!-- JavaScript for slideshow transition -->
 </body>
 </html>
