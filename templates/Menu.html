@@ -27,49 +27,49 @@
                 <h3>Espresso</h3>
                 <img src="{{ url_for('static', filename='espresso.jpg') }}" alt="Espresso">
                 <p>A concentrated form of coffee brewed with high pressure, hot water, and finely ground coffee beans.</p>
-                <button class="order-btn" onclick="addToOrder('Espresso')">Order Now</button>   
+                <button class="order-btn" onclick="addToOrder('Espresso', 179)">₹179</button>
             </div>
             <div class="menu-item">
                 <h3>Double Espresso</h3>
                 <img src="{{ url_for('static', filename='doubleEspresso.jpg') }}" alt="Double Espresso">
                 <p>Two shots of pure coffee essence, delivering an intense burst of flavor and energy in every sip.</p>
-                <button class="order-btn" onclick="addToOrder('Double Espresso')">Order Now</button>
+                <button class="order-btn" onclick="addToOrder('Double Espresso', 189)">₹189</button>
             </div>
             <div class="menu-item">
                 <h3>Coffee Latte</h3>
-                <img src="{{ url_for('static', filename='coffeeLatte.jpeg') }}" alt="Double Espresso">
+                <img src="{{ url_for('static', filename='coffeeLatte.jpeg') }}" alt="Coffee Latte">
                 <p>Smooth espresso meets creamy steamed milk for a velvety, indulgent delight.</p>
-                <button class="order-btn" onclick="addToOrder('Coffee Latte')">Order Now</button>
+                <button class="order-btn" onclick="addToOrder('Coffee Latte', 175)">₹175</button>
             </div>
             <div class="menu-item">
                 <h3>Iced Coffee Latte</h3>
-                <img src="{{ url_for('static', filename='icedCoffeeLatte.jpg') }}" alt="Double Espresso">
+                <img src="{{ url_for('static', filename='icedCoffeeLatte.jpg') }}" alt="Iced Coffee Latte">
                 <p>A refreshing twist on the classic, blending chilled espresso with creamy milk over ice for a cool, creamy indulgence.</p>
-                <button class="order-btn" onclick="addToOrder('Iced Coffee Latte')">Order Now</button>
+                <button class="order-btn" onclick="addToOrder('Iced Coffee Latte', 199)">₹199</button>
             </div>
             <div class="menu-item">
                 <h3>Cold Coffee</h3>
-                <img src="{{ url_for('static', filename='coldCoffee.jpg') }}" alt="Double Espresso">
+                <img src="{{ url_for('static', filename='coldCoffee.jpg') }}" alt="Cold Cofee">
                 <p>Savor the cool, invigorating embrace of cold coffee, a refreshing symphony of rich flavors and icy delight.</p>
-                <button class="order-btn" onclick="addToOrder('Cold Coffee')">Order Now</button>
+                <button class="order-btn" onclick="addToOrder('Cold Coffee', 139)">₹139</button>
             </div>
             <div class="menu-item">
                 <h3>Americano</h3>
-                <img src="{{ url_for('static', filename='Americano.png') }}" alt="Double Espresso">
+                <img src="{{ url_for('static', filename='Americano.png') }}" alt="Americano">
                 <p>Savor the cool, invigorating embrace of cold coffee, a refreshing symphony of rich flavors and icy delight.</p>
-                <button class="order-btn" onclick="addToOrder('Americano')">Order Now</button>
+                <button class="order-btn" onclick="addToOrder('Americano', 165)">₹165</button>
             </div>
             <div class="menu-item">
                 <h3>Macchiato</h3>
-                <img src="{{ url_for('static', filename='Macchiato.png') }}" alt="Double Espresso">
+                <img src="{{ url_for('static', filename='Macchiato.png') }}" alt="Macchiato">
                 <p>Bold espresso marked with a dollop of velvety foam, delivering a perfect balance of rich intensity and creamy texture.</p>
-                <button class="order-btn" onclick="addToOrder('Macchiato')">Order Now</button>
+                <button class="order-btn" onclick="addToOrder('Macchiato', 271)">₹271</button>
             </div>
             <div class="menu-item">
                 <h3>Filter Coffee</h3>
-                <img src="{{ url_for('static', filename='FilterCoffee.png') }}" alt="Double Espresso">
+                <img src="{{ url_for('static', filename='FilterCoffee.png') }}" alt="Filter Coffee">
                 <p>A pure and flavorful brew, meticulously crafted through the gentle filtration process, revealing the true essence of the beans in every sip.</p>
-                <button class="order-btn" onclick="addToOrder('Filter Coffee')">Order Now</button>
+                <button class="order-btn" onclick="addToOrder('Filter Coffee', 45)">₹45</button>
             </div>
             <!-- Add more coffee menu items here -->
         </div>
@@ -82,57 +82,61 @@
                 <h3>Hot Chocolate</h3>
                 <img src="{{ url_for('static', filename='hotChocolate.png') }}" alt="Hot Chocolate">
                 <p>Rich cocoa blended with steamed milk for a comforting treat, topped with whipped cream or marshmallows.</p>
-                <button class="order-btn" onclick="addToOrder('Hot Chocolate')">Order Now</button>    
+                <button class="order-btn" onclick="addToOrder('Hot Chocolate', 190)">₹190</button>    
             </div>
             <div class="menu-item">
                 <h3>Iced Tea</h3>
                 <img src="{{ url_for('static', filename='icedtea.png') }}" alt="Iced Tea">
                 <p>Chilled and invigorating, brewed tea poured over ice for a refreshing sip, available in a variety of flavors to suit your taste buds.</p>
-                <button class="order-btn" onclick="addToOrder('Iced Tea')">Order Now</button>    
+                <button class="order-btn" onclick="addToOrder('Iced Tea', 120)">₹120</button>    
             </div>
             <div class="menu-item">
                 <h3>Iced Lemonade</h3>
-                <img src="{{ url_for('static', filename='lemonade.png') }}" alt="Iced Tea">
+                <img src="{{ url_for('static', filename='lemonade.png') }}" alt="Iced Lemonade">
                 <p>A zesty and refreshing blend of freshly squeezed lemon juice, sweetener, and ice, perfect for quenching your thirst on a hot day.</p>
-                <button class="order-btn" onclick="addToOrder('Iced Lemonade')">Order Now</button>    
+                <button class="order-btn" onclick="addToOrder('Iced Lemonade', 120)">₹120</button>    
             </div>
             <div class="menu-item">
                 <h3>Strawberry-Banana Smoothie</h3>
-                <img src="{{ url_for('static', filename='straw_bana_smoothie.jpg') }}" alt="Iced Tea">
+                <img src="{{ url_for('static', filename='straw_bana_smoothie.jpg') }}" alt="Strawberry-Banana Smoothie">
                 <p>A delightful blend of ripe strawberries and creamy bananas, blended with yogurt or milk for a refreshing and satisfying treat, perfect for any time of day.</p>
-                <button class="order-btn" onclick="addToOrder('Strawberry-Banana Smoothie')">Order Now</button>    
+                <button class="order-btn" onclick="addToOrder('Strawberry-Banana Smoothie', 199)">₹199</button>    
             </div>
             <div class="menu-item">
                 <h3>Mango-Pineapple Smoothie</h3>
-                <img src="{{ url_for('static', filename='mang_pine_smoothie.jpg') }}" alt="Iced Tea">
+                <img src="{{ url_for('static', filename='mang_pine_smoothie.jpg') }}" alt="Mango-Pineapple Smoothie">
                 <p>Transport yourself to the tropics with this luscious blend of ripe mangoes and tangy pineapples, mixed with coconut milk or orange juice for a refreshing taste of paradise in every sip.</p>
-                <button class="order-btn" onclick="addToOrder('Mango-Pineapple Smoothie')">Order Now</button>    
+                <button class="order-btn" onclick="addToOrder('Mango-Pineapple Smoothie', 199)">₹199</button>    
             </div>
             <div class="menu-item">
                 <h3>Mixed-Berry Smoothie</h3>
-                <img src="{{ url_for('static', filename='mixed_smoothie.png') }}" alt="Iced Tea">
+                <img src="{{ url_for('static', filename='mixed_smoothie.png') }}" alt="Mixed-Berry Smoothie">
                 <p>A burst of antioxidants awaits in this blend of strawberries, blueberries, raspberries, and blackberries, blended with yogurt or almond milk for a delicious and nutritious pick-me-up.</p>
-                <button class="order-btn" onclick="addToOrder('Mixed-Berry Smoothie')">Order Now</button>    
+                <button class="order-btn" onclick="addToOrder('Mixed-Berry Smoothie', 210)">₹210</button>    
             </div>
             <div class="menu-item">
                 <h3>Peachy Keen Smoothie</h3>
-                <img src="{{ url_for('static', filename='peach_smoothie.png') }}" alt="Iced Tea">
+                <img src="{{ url_for('static', filename='peach_smoothie.png') }}" alt="Peachy Keen Smoothie">
                 <p>Taste the essence of summer with this delightful blend of juicy peaches, blended with Greek yogurt or vanilla almond milk for a creamy and peachy treat that will leave you feeling refreshed and satisfied.</p>
-                <button class="order-btn" onclick="addToOrder('Peachy Keen Smoothie')">Order Now</button>    
+                <button class="order-btn" onclick="addToOrder('Peachy Keen Smoothie', 220)">₹220</button>    
             </div>
             <!-- Add more non-coffee menu items here -->
         </div>
     </div>
 </section>
 
-<!-- Order summary popup -->
+<!-- order summary popup to include Place Order and Proceed to Payment buttons -->
 <div id="order-summary" class="order-summary-popup">
     <h2>Order Summary</h2>
     <ul id="order-list">
-        <!-- Selected items will be dynamically added here -->
+        <!-- Selected items with price will be dynamically added here -->
     </ul>
-    <button onclick="placeOrder()">Place Order</button>
+    <!-- Place Order button -->
+    <button id="place-order-btn" onclick="placeOrder()">Place Order</button>
+    <!-- Proceed to Payment button (initially hidden) -->
+    <button id="payment-btn" onclick="proceedToPayment()" style="display: none;">Proceed to Payment</button>
 </div>
+
 
 </body>
 </html>
