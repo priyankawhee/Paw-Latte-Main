@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session
 import psycopg2
 
 app = Flask(__name__)
@@ -60,6 +60,7 @@ def create_orders_table():
             CREATE TABLE IF NOT EXISTS orders (
                 id SERIAL PRIMARY KEY,
                 item VARCHAR(100) NOT NULL,
+                price FLOAT NOT NULL,
                 username VARCHAR(100) NOT NULL
             )
         """)
@@ -159,12 +160,12 @@ def register():
 def home():
     return render_template('Home.html')
 
-# Courses page route
+# Menu page route
 @app.route('/menu')
 def menu():
     return render_template('Menu.html')
 
-# Route for the course page
+# Route for the pets corner page
 @app.route('/petscorner')
 def petscorner():
     return render_template('petsCorner.html')
@@ -188,50 +189,117 @@ def logout():
     # Redirect to the login page after logout
     return redirect(url_for('login'))
 
-# Route to handle placing orders
+@app.route('/adopter')
+def adopter():
+    return render_template('adopter.html')
+
+# Function to establish a connection to the PostgreSQL database
+def connect_to_database():
+    conn = psycopg2.connect(
+        dbname="pawlatte",
+        user="postgres",
+        password="pri",
+        host="localhost",
+        port="5432"
+    )
+    return conn
+
+# Function to create adopter table if it doesn't exist
+def create_adopter_table():
+    try:
+        # Connect to PostgreSQL database
+        conn = connect_to_database()
+        cur = conn.cursor()
+
+        # Create adopter table if it doesn't exist
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS adopter (
+                id SERIAL PRIMARY KEY,
+                first_name VARCHAR(100) NOT NULL,
+                last_name VARCHAR(100) NOT NULL,
+                address VARCHAR(255) NOT NULL,
+                city_state VARCHAR(100) NOT NULL,
+                zipcode VARCHAR(20) NOT NULL,
+                phone VARCHAR(20) NOT NULL,
+                email VARCHAR(100) NOT NULL,
+                house_type VARCHAR(100) NOT NULL,
+                reasons TEXT NOT NULL,
+                previously_owned BOOLEAN NOT NULL,
+                current_pets TEXT
+            )
+        """)
+
+        # Commit the transaction
+        conn.commit()
+
+        # Close the cursor and connection
+        cur.close()
+        conn.close()
+
+    except psycopg2.Error as e:
+        print("Error creating adopter table:", e)
+
+# Call the function to create the adopter table
+create_adopter_table()
+
+# Route for submit adopter form
+@app.route('/submit_adopter_form', methods=['POST'])
+def submit_adopter_form():
+    if request.method == 'POST':
+        try:
+            # Extract data from the form
+            first_name = request.form['first-name']
+            last_name = request.form['last-name']
+            address = request.form['address']
+            city_state = request.form['city-state']
+            zipcode = request.form['zipcode']
+            phone = request.form['phone']
+            email = request.form['email']
+            house_type = request.form['home-type']
+            reasons = request.form['reason']
+            previously_owned = request.form['previously-owned']
+            current_pets = request.form['current-pets']
+
+            # Insert data into the adopter table
+            conn = connect_to_database()
+            cur = conn.cursor()
+            cur.execute("""
+                INSERT INTO adopter (first_name, last_name, address, city_state, zipcode, phone, email, house_type, reasons, previously_owned, current_pets)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """, (first_name, last_name, address, city_state, zipcode, phone, email, house_type, reasons, previously_owned, current_pets))
+            conn.commit()
+            cur.close()
+            conn.close()
+
+            return "Data inserted successfully!"
+        except Exception as e:
+            return str(e)  # Return the error message for debugging
+
 @app.route('/place_order', methods=['POST'])
 def place_order():
-    if request.method == 'POST':
-        # Check if user is logged in
-        if 'user' in session and session['logged_in']:
-            # Retrieve the selected items from the request
-            selected_items = request.json['selectedItems']
-            username = session['user']['username']
+    if 'user' in session and session['logged_in']:
+        try:
+            # Connect to the database
+            conn = connect_to_database()
+            cur = conn.cursor()
 
-            try:
-                # Connect to PostgreSQL database
-                conn = psycopg2.connect(
-                    dbname="pawlatte",
-                    user="postgres",
-                    password="pri",
-                    host="localhost",
-                    port="5432"
-                )
+            # Iterate through the items in the order summary and insert them into the orders table
+            for item in request.json['items']:
+                cur.execute("""
+                    INSERT INTO orders (item, price, username) 
+                    VALUES (%s, %s, %s)
+                """, (item['item'], item['price'], session['user']['username']))
+            conn.commit()
 
-                # Create a cursor object
-                cur = conn.cursor()
+            # Close the cursor and connection
+            cur.close()
+            conn.close()
 
-                # Insert each selected item into the orders table
-                for item in selected_items:
-                    cur.execute("INSERT INTO orders (item, username) VALUES (%s, %s)", (item, username))
-                
-                # Commit the transaction
-                conn.commit()
-
-                # Close the cursor and connection
-                cur.close()
-                conn.close()
-
-                # Return a success message
-                return jsonify({"message": "Order placed successfully!"})
-
-            except psycopg2.Error as e:
-                print("Error placing order:", e)
-                return jsonify({"error": "Failed to place order. Please try again later."})
-
-        else:
-            return jsonify({"error": "User not logged in. Please log in to place an order."})
-
+            return "Order placed successfully!"
+        except Exception as e:
+            return str(e)  # Return the error message for debugging
+    else:
+        return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(debug=True)
