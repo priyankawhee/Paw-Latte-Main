@@ -12,7 +12,7 @@ def authenticate_user(username, password):
             dbname="pawlatte",
             user="postgres",
             password="pri",
-            host="localhost",
+            host="host.docker.internal",
             port="5432"
         )
 
@@ -48,7 +48,7 @@ def create_orders_table():
             dbname="pawlatte",
             user="postgres",
             password="pri",
-            host="localhost",
+            host="host.docker.internal",
             port="5432"
         )
 
@@ -125,7 +125,7 @@ def register():
                 dbname="pawlatte",
                 user="postgres",
                 password="pri",
-                host="localhost",
+                host="host.docker.internal",
                 port="5432"
             )
 
@@ -199,7 +199,7 @@ def connect_to_database():
         dbname="pawlatte",
         user="postgres",
         password="pri",
-        host="localhost",
+        host="host.docker.internal",
         port="5432"
     )
     return conn
@@ -302,4 +302,5 @@ def place_order():
         return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
+
